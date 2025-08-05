@@ -69,6 +69,7 @@ function ensureAuth(req, res, next) {
   next();
 }
 
+
 function ensureApiAuth(req, res, next) {
   if (!req.session.user) return res.status(401).json({ error: 'No autenticado' });
   next();
@@ -76,6 +77,12 @@ function ensureApiAuth(req, res, next) {
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
+=======
+app.get('/', (req, res) => {
+  db.all('SELECT * FROM products', (err, products) => {
+    res.render('index', { products, user: req.session.user });
+  });
+
 });
 
 app.get('/login', (req, res) => {
@@ -177,6 +184,7 @@ app.post('/cart/checkout', ensureAuth, (req, res) => {
     });
   });
 });
+
 
 // API routes
 app.get('/api/products', (req, res) => {
@@ -281,6 +289,7 @@ app.post('/api/cart/checkout', ensureApiAuth, (req, res) => {
     });
   });
 });
+
 
 app.get('/success', (req, res) => {
   res.render('success', { orderId: null });
