@@ -77,7 +77,7 @@ function ensureApiAuth(req, res, next) {
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
-=======
+
 app.get('/', (req, res) => {
   db.all('SELECT * FROM products', (err, products) => {
     res.render('index', { products, user: req.session.user });
