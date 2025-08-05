@@ -1,0 +1,7 @@
+body { font-family: Arial, sans-serif; }
+.products { list-style: none; display: flex; flex-wrap: wrap; padding: 0; }
+.products li { margin: 10px; padding: 10px; border: 1px solid #ccc; text-align: center; }
+.products img { width: 100px; height: 100px; }
+header { display: flex; justify-content: space-between; align-items: center; }
+form { display: flex; flex-direction: column; width: 200px; }
+form input { margin-bottom: 10px; }

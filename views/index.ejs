@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Fino - Tienda de Bolsas</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Fino - Tienda de Bolsas</h1>
+  <% if (user) { %>
+    <p>Hola, <%= user.username %> | <a href="/logout">Salir</a></p>
+  <% } else { %>
+    <a href="/login">Iniciar sesión</a> | <a href="/register">Registrarse</a>
+  <% } %>
+  <ul class="products">
+    <% products.forEach(p => { %>
+      <li>
+        <img src="<%= p.image %>" alt="Bolsa <%= p.id %>" />
+        <h3><%= p.name %></h3>
+        <p>$<%= (p.price/100).toFixed(2) %></p>
+        <form method="post" action="/cart/add/<%= p.id %>">
+          <button type="submit">Agregar</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+  <a href="/cart">Ver carrito</a>
+</body>
+</html>
