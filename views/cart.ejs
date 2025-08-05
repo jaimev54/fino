@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrito</title>
+</head>
+<body>
+  <h1>Carrito</h1>
+  <ul>
+    <% items.forEach(i => { %>
+      <li><%= i.product.name %> x <%= i.qty %> = $<%= (i.product.price * i.qty/100).toFixed(2) %></li>
+    <% }) %>
+  </ul>
+  <form method="post" action="/cart/checkout">
+    <button type="submit">Pagar</button>
+  </form>
+</body>
+</html>
