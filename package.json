@@ -1,0 +1,22 @@
+{
+  "name": "fino",
+  "version": "1.0.0",
+  "description": "Tienda de bolsas Fino",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node -e \"console.log('No tests yet')\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "express-session": "^1.17.3",
+    "sqlite3": "^5.1.6",
+    "stripe": "^16.0.0"
+  }
+}
